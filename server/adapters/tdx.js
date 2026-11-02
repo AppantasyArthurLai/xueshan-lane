@@ -5,7 +5,7 @@
  *  2. 取得高速公路 VD 靜態資料，依 config/tunnel-vd.json 篩出國道5號雪山隧道內的偵測器（快取數小時）
  *  3. 取得 VD 即時資料（車道層級 Speed / Occupancy / Vehicles.Volume），整理成共用格式
  *
- * ⚠ 欄位對應（LaneID 與左右線、方向代碼、里程範圍）需在取得金鑰後以實際資料核對，
+ * 注意：欄位對應（LaneID 與左右線、方向代碼、里程範圍）需在取得金鑰後以實際資料核對，
  *   請見 config/tunnel-vd.json 與 README。
  */
 

@@ -1,5 +1,5 @@
 {
-  "_comment": "雪山隧道 VD 偵測器選取設定。⚠ 待取得 TDX 金鑰後需實際核對：里程範圍、RoadID、方向代碼、車道編號對應（LaneID→左/右線）以及是否改用明確 VDID 清單。",
+  "_comment": "雪山隧道 VD 偵測器選取設定。待取得 TDX 金鑰後需實際核對：里程範圍、RoadID、方向代碼、車道編號對應（LaneID→左/右線）以及是否改用明確 VDID 清單。",
   "verified": false,
   "roadId": "000050",
   "roadNameIncludes": "國道5號",

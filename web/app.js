@@ -125,7 +125,7 @@
     const seq = ++reqSeq;
     const wanted = dir;
     try {
-      const res = await fetch(`/api/lanes?dir=${wanted}`, { cache: 'no-store' });
+      const res = await fetch(`api/lanes?dir=${wanted}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (seq !== reqSeq || wanted !== dir) return; // 已切換方向，丟棄舊回應

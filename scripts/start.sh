@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 啟動雪隧車道伺服器（背景執行）。會先依 pidfile 停掉前一個實例。
+# 啟動雪隧王道伺服器（背景執行）。會先依 pidfile 停掉前一個實例。
 set -euo pipefail
 cd "$(dirname "$0")/.."
 mkdir -p data

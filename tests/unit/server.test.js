@@ -23,7 +23,7 @@ test('HTTP: /api/lanes, static files, traversal guard', async (t) => {
   const html = await fetch(`${base}/`);
   assert.equal(html.status, 200);
   assert.match(html.headers.get('content-type'), /text\/html/);
-  assert.match(await html.text(), /雪隧車道/);
+  assert.match(await html.text(), /雪隧王道/);
 
   assert.equal((await fetch(`${base}/manifest.webmanifest`)).status, 200);
   assert.equal((await fetch(`${base}/..%2fpackage.json`)).status, 403);

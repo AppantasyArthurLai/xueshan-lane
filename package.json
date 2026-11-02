@@ -1,7 +1,7 @@
 {
   "name": "xueshan-lane",
   "version": "0.1.0",
-  "description": "雪隧車道：國道5號雪山隧道左線/右線車道建議（推估，非官方）",
+  "description": "雪隧王道：國道5號雪山隧道左線/右線車道建議（推估，非官方）",
   "private": true,
   "license": "MIT",
   "type": "commonjs",

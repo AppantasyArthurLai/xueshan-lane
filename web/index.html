@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b111a">
+  <meta name="theme-color" content="#0a0e14">
   <meta name="description" content="國道5號雪山隧道左線／右線車道建議（推估，非官方）">
-  <title>雪隧車道 xueshan-lane</title>
-  <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="/style.css">
+  <title>雪隧王道 xueshan-lane</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
-    <h1 class="brand"><img src="/icons/icon.svg" alt="" width="28" height="28"> 雪隧車道</h1>
+    <h1 class="brand"><img src="icons/icon.svg" alt="" width="28" height="28"> 雪隧王道</h1>
     <div class="toggle" role="group" aria-label="行駛方向">
       <button type="button" class="dir-btn" data-dir="N" aria-pressed="false">北上<small>往台北</small></button>
       <button type="button" class="dir-btn" data-dir="S" aria-pressed="false">南下<small>往宜蘭</small></button>
@@ -26,7 +26,7 @@
       <small id="banner-sub"></small>
     </section>
 
-    <div id="stale" class="stale" hidden>⚠ 資料已超過 3 分鐘未更新，僅供參考</div>
+    <div id="stale" class="stale" hidden><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.8" r=".9" fill="currentColor"/></svg><span>資料已超過 3 分鐘未更新，僅供參考</span></div>
 
     <section class="lanes">
       <article class="lane" id="lane-left" data-lane="left">
@@ -53,10 +53,10 @@
     </p>
     <p id="error" class="error" hidden></p>
 
-    <p class="safety">🚫 請勿開車時操作　·　數值皆為推估，非官方資訊</p>
-    <nav class="links"><a href="/explain.html" id="explain-link">推估邏輯說明 ›</a></nav>
+    <p class="safety"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.6 12.4l8.8-8.8" stroke="currentColor" stroke-width="1.5"/></svg><span>請勿開車時操作<span class="sep" aria-hidden="true">·</span>數值皆為推估，非官方資訊</span></p>
+    <nav class="links"><a href="explain.html" id="explain-link">推估邏輯說明 ›</a></nav>
   </main>
 
-  <script src="/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

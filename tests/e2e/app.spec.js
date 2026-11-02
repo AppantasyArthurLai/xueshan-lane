@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 
 test('page loads and both lane blocks show numbers', async ({ page }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle(/雪隧車道/);
+  await expect(page).toHaveTitle(/雪隧王道/);
   for (const id of ['#lane-left', '#lane-right']) {
     const block = page.locator(id);
     await expect(block.locator('[data-field="speed"]')).toHaveText(/^\d{1,3}$/);
@@ -134,6 +134,56 @@ test('manifest and icons are served', async ({ request }) => {
   const m = await request.get('/manifest.webmanifest');
   expect(m.ok()).toBeTruthy();
   const manifest = await m.json();
-  expect(manifest.short_name).toBe('雪隧車道');
-  for (const icon of manifest.icons) expect((await request.get(icon.src)).ok()).toBeTruthy();
+  expect(manifest.short_name).toBe('雪隧王道');
+  expect(manifest.name).toContain('雪隧王道');
+  expect(manifest.start_url).toBe('.');
+  expect(manifest.scope).toBe('.');
+  for (const icon of manifest.icons) {
+    expect(icon.src.startsWith('/')).toBe(false);
+    expect((await request.get(new URL(icon.src, m.url()).href)).ok()).toBeTruthy();
+  }
+});
+
+const EMOJI = /\p{Extended_Pictographic}/u;
+
+for (const path of ['/', '/explain.html']) {
+  test(`no emoji in rendered text: ${path}`, async ({ page }) => {
+    await page.goto(path);
+    if (path === '/') await expect(page.locator('#lane-left [data-field="speed"]')).toHaveText(/^\d+$/);
+    await expect(page.locator('body')).toContainText('雪隧王道');
+    const text = await page.locator('body').innerText();
+    const title = await page.title();
+    expect(text.match(new RegExp(EMOJI.source, 'gu')) || []).toEqual([]);
+    expect(title).not.toMatch(EMOJI);
+  });
+
+  test(`all asset paths are relative: ${path}`, async ({ page }) => {
+    await page.goto(path);
+    const abs = await page.evaluate(() =>
+      Array.from(document.querySelectorAll('[src],[href]'))
+        .map((el) => el.getAttribute('src') ?? el.getAttribute('href'))
+        .filter((v) => v.startsWith('/')),
+    );
+    expect(abs).toEqual([]);
+  });
+}
+
+test('app works under a sub-path base', async ({ page }) => {
+  const apiPaths = [];
+  // 模擬反向代理掛在 /sub/ 底下：把 /sub/* 轉送到根目錄
+  await page.route('**/sub/**', async (route) => {
+    const u = new URL(route.request().url());
+    if (u.pathname.startsWith('/sub/api/')) apiPaths.push(u.pathname);
+    const res = await route.fetch({ url: u.origin + u.pathname.replace(/^\/sub/, '') + u.search });
+    await route.fulfill({ response: res });
+  });
+  await page.goto('/sub/');
+  await expect(page.locator('#lane-left [data-field="speed"]')).toHaveText(/^\d+$/);
+  expect(apiPaths).toContain('/sub/api/lanes');
+  const cssOk = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  expect(cssOk).toBe('rgb(10, 14, 20)');
+  await page.locator('#explain-link').click();
+  await expect(page).toHaveURL(/\/sub\/explain\.html$/);
+  await page.locator('a', { hasText: '回到雪隧王道' }).first().click();
+  await expect(page).toHaveURL(/\/sub\/$/);
 });
