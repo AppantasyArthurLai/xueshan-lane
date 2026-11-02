@@ -35,3 +35,21 @@ test('asset, API and manifest paths are relative', () => {
   assert.equal(m.scope, '.');
   for (const i of m.icons) assert.ok(!i.src.startsWith('/'), i.src);
 });
+
+test('every inline SVG declares width/height so it cannot blow up without CSS', () => {
+  for (const f of ['web/index.html', 'web/explain.html']) {
+    const svgs = read(f).match(/<svg\b[^>]*>/g) || [];
+    assert.ok(svgs.length > 0, f);
+    for (const tag of svgs) {
+      assert.match(tag, /\swidth="\d+"/, `${f}: ${tag}`);
+      assert.match(tag, /\sheight="\d+"/, `${f}: ${tag}`);
+    }
+  }
+});
+
+test('stylesheet and script URLs are versioned (cache-busting)', () => {
+  for (const f of ['web/index.html', 'web/explain.html']) {
+    assert.match(read(f), /href="style\.css\?v=\w+"/, f);
+  }
+  assert.match(read('web/index.html'), /src="app\.js\?v=\w+"/);
+});

@@ -10,6 +10,11 @@
     N: '北上：頭城交流道後約 2 公里進隧道，請在進隧道前決定車道（隧道內禁止變換車道）',
   };
 
+  const ROUTE = {
+    S: { from: '坪林交流道', dist: '約 1 km' },
+    N: { from: '頭城交流道', dist: '約 2 km' },
+  };
+
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
@@ -48,13 +53,56 @@
     }
   }
 
+  const reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: true };
+
   function setText(el, v) {
     el.textContent = v == null || Number.isNaN(v) ? '--' : String(v);
+  }
+
+  // 數字更新時以整數滾動到新值（尊重 prefers-reduced-motion）
+  function setNumber(el, v) {
+    const to = Number(v);
+    if (v == null || !Number.isFinite(to)) {
+      cancelAnimationFrame(el._raf);
+      setText(el, null);
+      return;
+    }
+    const from = Number(el.textContent);
+    cancelAnimationFrame(el._raf);
+    if (reduceMotion.matches || !Number.isFinite(from) || from === to || !Number.isInteger(to)) {
+      setText(el, to);
+      return;
+    }
+    const dur = Math.min(900, 380 + Math.abs(to - from) * 12);
+    const t0 = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(from + (to - from) * e));
+      if (p < 1) el._raf = requestAnimationFrame(step);
+    };
+    el._raf = requestAnimationFrame(step);
+  }
+
+  function setBannerText(el, pre, main) {
+    el.textContent = '';
+    if (pre) {
+      const a = document.createElement('span');
+      a.className = 'rec-pre';
+      a.textContent = pre;
+      el.append(a);
+    }
+    const b = document.createElement('span');
+    b.className = 'rec-main';
+    b.textContent = main;
+    el.append(b);
   }
 
   function renderDir() {
     for (const b of $$('.dir-btn')) b.setAttribute('aria-pressed', String(b.dataset.dir === dir));
     $('#hint').textContent = HINTS[dir];
+    $('[data-route="from"]').textContent = ROUTE[dir].from;
+    $('[data-route="dist"]').textContent = ROUTE[dir].dist;
     document.body.dataset.dir = dir;
   }
 
@@ -63,6 +111,7 @@
     const text = $('#banner-text');
     const sub = $('#banner-sub');
     banner.className = 'banner';
+    let pre = '';
     let main;
     let detail = '';
     if (!rec || rec.rec === 'unknown') {
@@ -70,27 +119,35 @@
       main = '資料不足';
     } else if (rec.rec === 'similar') {
       banner.classList.add('banner-similar');
-      main = '兩線差不多';
+      pre = '兩線';
+      main = '差不多';
       detail = `車速差距約 ${Math.abs(rec.diff)} km/h（推估）`;
     } else {
       banner.classList.add('banner-go', `banner-${rec.rec}`);
-      main = rec.rec === 'left' ? '建議走左線' : '建議走右線';
+      pre = '建議走';
+      main = rec.rec === 'left' ? '左線' : '右線';
       const faster = rec.diff > 0 ? 'left' : 'right';
       detail = faster === rec.rec
         ? `約快 ${Math.abs(rec.diff)} km/h（推估）`
         : '差距縮小中，暫維持原建議（推估）';
     }
     banner.dataset.rec = rec ? rec.rec : 'unknown';
-    text.textContent = main;
+    setBannerText(text, pre, main);
     sub.textContent = detail;
   }
 
   function renderLane(id, lane, rec) {
     const el = $(id);
-    setText($('[data-field="speed"]', el), lane?.speed);
-    setText($('[data-field="vehiclesAhead"]', el), lane?.vehiclesAhead);
-    setText($('[data-field="slowSuspect"]', el), lane?.slowSuspect);
+    setNumber($('[data-field="speed"]', el), lane?.speed);
+    setNumber($('[data-field="vehiclesAhead"]', el), lane?.vehiclesAhead);
+    setNumber($('[data-field="slowSuspect"]', el), lane?.slowSuspect);
     el.classList.toggle('is-rec', rec?.rec === el.dataset.lane);
+    const speed = Number(lane?.speed);
+    const ok = Number.isFinite(speed) && speed > 0;
+    $('.gauge', el).style.setProperty('--v', ok ? String(Math.min(100, speed)) : '0');
+    // 隧道光點流速：車速越快、光點越快
+    const flow = $(`.flow-${el.dataset.lane}`);
+    if (flow) flow.style.setProperty('--dur', ok ? `${(160 / Math.max(20, speed)).toFixed(2)}s` : '6s');
   }
 
   function renderStale() {

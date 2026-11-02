@@ -62,14 +62,18 @@ test('banner shows green left recommendation and gray similar (mocked API)', asy
   await expect(page.locator('#banner-text')).toHaveText('建議走左線');
   await expect(page.locator('#banner')).toHaveClass(/banner-go/);
   await expect(page.locator('#lane-left')).toHaveClass(/is-rec/);
-  const bg = await page.locator('#banner').evaluate((el) => getComputedStyle(el).backgroundColor);
-  expect(bg).toBe('rgb(22, 163, 74)');
+  // 綠色＝建議：底色以綠色為主（深綠，確保白字對比達 WCAG AA）
+  const [r, g, b] = await page.locator('#banner').evaluate((el) => getComputedStyle(el).backgroundColor.match(/\d+/g).map(Number));
+  expect(g).toBeGreaterThan(r + 15);
+  expect(g).toBeGreaterThan(b);
   await page.screenshot({ path: `${SCREENS}/rec-left.png`, fullPage: true });
 
   rec = 'similar';
   await page.locator('.dir-btn[data-dir="N"]').click();
   await expect(page.locator('#banner-text')).toHaveText('兩線差不多');
   await expect(page.locator('#banner')).toHaveClass(/banner-similar/);
+  const [sr, sg, sb] = await page.locator('#banner').evaluate((el) => getComputedStyle(el).backgroundColor.match(/\d+/g).map(Number));
+  expect(Math.max(sr, sg, sb) - Math.min(sr, sg, sb)).toBeLessThan(16); // 灰色：不帶綠色
   await page.screenshot({ path: `${SCREENS}/similar.png`, fullPage: true });
 });
 
@@ -186,4 +190,92 @@ test('app works under a sub-path base', async ({ page }) => {
   await expect(page).toHaveURL(/\/sub\/explain\.html$/);
   await page.locator('a', { hasText: '回到雪隧王道' }).first().click();
   await expect(page).toHaveURL(/\/sub\/$/);
+});
+
+// 回歸：iPhone 上資料時間下方曾出現巨大的白色圓環（內嵌 SVG 在樣式未套用時被撐成整頁寬）
+async function svgAndFooterBounds(page) {
+  return page.evaluate(() => {
+    const vw = document.documentElement.clientWidth;
+    const svgs = Array.from(document.querySelectorAll('svg')).map((el) => {
+      const r = el.getBoundingClientRect();
+      return { cls: el.getAttribute('class') || '', w: r.width, h: r.height };
+    });
+    const meta = document.querySelector('.meta') || document.querySelector('#data-time');
+    const metaBottom = meta.getBoundingClientRect().bottom;
+    const below = Array.from(document.querySelectorAll('body *'))
+      .filter((el) => el.getBoundingClientRect().top >= metaBottom - 1 && el.getBoundingClientRect().height > 0)
+      .map((el) => ({ tag: el.tagName, cls: el.getAttribute('class') || '', h: el.getBoundingClientRect().height }));
+    return { vw, svgs, below };
+  });
+}
+
+for (const blockCss of [false, true]) {
+  test(`SVGs are bounded and nothing oversized below data time${blockCss ? ' (stylesheet missing / stale cache)' : ''}`, async ({ page }) => {
+    if (blockCss) await page.route('**/style.css*', (route) => route.fulfill({ status: 200, contentType: 'text/css', body: '' }));
+    await page.goto('/');
+    await expect(page.locator('#lane-left [data-field="speed"]')).toHaveText(/^\d+$/);
+    const { vw, svgs, below } = await svgAndFooterBounds(page);
+    expect(svgs.length).toBeGreaterThan(0);
+    for (const s of svgs) {
+      if (s.cls.includes('ico') || s.cls.includes('brand-mark')) {
+        expect(s.w, `icon svg .${s.cls}`).toBeLessThanOrEqual(40);
+        expect(s.h, `icon svg .${s.cls}`).toBeLessThanOrEqual(40);
+      } else {
+        expect(s.w, `svg .${s.cls}`).toBeLessThanOrEqual(Math.min(vw, 440));
+        expect(s.h, `svg .${s.cls}`).toBeLessThanOrEqual(280);
+      }
+    }
+    // 資料時間以下只剩錯誤訊息、安全提醒與說明連結：任何元素都不該超過 120px 高
+    const big = below.filter((b) => b.h > 120 && b.tag !== 'FOOTER');
+    expect(big).toEqual([]);
+    const foot = below.find((b) => b.tag === 'FOOTER');
+    if (foot) expect(foot.h).toBeLessThanOrEqual(blockCss ? 200 : 160);
+  });
+}
+
+test('explain page SVGs are bounded', async ({ page }) => {
+  await page.goto('/explain.html');
+  const sizes = await page.$$eval('svg', (els) => els.map((el) => el.getBoundingClientRect()).map((r) => [r.width, r.height]));
+  expect(sizes.length).toBeGreaterThan(0);
+  for (const [w, h] of sizes) {
+    expect(w).toBeLessThanOrEqual(24);
+    expect(h).toBeLessThanOrEqual(24);
+  }
+});
+
+test('numbers roll to new values and respect reduced motion', async ({ browser }) => {
+  for (const reducedMotion of ['no-preference', 'reduce']) {
+    const ctx = await browser.newContext({ reducedMotion });
+    const page = await ctx.newPage();
+    let speed = 60;
+    await page.route('**/api/lanes*', (route) => route.fulfill({
+      json: {
+        dir: 'S', source: 'tdx', sourceLabel: 'TDX', dataTime: new Date().toISOString(),
+        lanes: { left: { speed, vehiclesAhead: 100, slowSuspect: 1 }, right: { speed: 80, vehiclesAhead: 90, slowSuspect: 2 } },
+        recommendation: { rec: 'right', diff: speed - 80, held: false },
+      },
+    }));
+    await page.goto('/');
+    const num = page.locator('#lane-left [data-field="speed"]');
+    await expect(num).toHaveText('60');
+    await page.evaluate(() => {
+      window.__seen = [];
+      const el = document.querySelector('#lane-left [data-field="speed"]');
+      new MutationObserver(() => window.__seen.push(el.textContent)).observe(el, { childList: true, characterData: true, subtree: true });
+    });
+    speed = 90;
+    await page.locator('.dir-btn[data-dir="N"]').click();
+    await expect(num).toHaveText('90');
+    const seen = await page.evaluate(() => window.__seen);
+    const between = seen.filter((v) => Number(v) > 60 && Number(v) < 90);
+    const anim = await page.locator('.flow-left').evaluate((el) => getComputedStyle(el).animationName);
+    if (reducedMotion === 'reduce') {
+      expect(between).toEqual([]);
+      expect(anim).toBe('none');
+    } else {
+      expect(between.length).toBeGreaterThan(0);
+      expect(anim).toBe('flow');
+    }
+    await ctx.close();
+  }
 });

@@ -4,59 +4,126 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0e14">
+  <meta name="color-scheme" content="dark">
   <meta name="description" content="國道5號雪山隧道左線／右線車道建議（推估，非官方）">
   <title>雪隧王道 xueshan-lane</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
-<body>
-  <header class="top">
-    <h1 class="brand"><img src="icons/icon.svg" alt="" width="28" height="28"> 雪隧王道</h1>
-    <div class="toggle" role="group" aria-label="行駛方向">
-      <button type="button" class="dir-btn" data-dir="N" aria-pressed="false">北上<small>往台北</small></button>
-      <button type="button" class="dir-btn" data-dir="S" aria-pressed="false">南下<small>往宜蘭</small></button>
-    </div>
-  </header>
+<body class="page-home">
+  <div class="shell">
+    <header class="top">
+      <a class="brand" href="./" aria-label="雪隧王道 首頁">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" rx="8" fill="#121a24"/>
+          <path d="M6 27V17a10 10 0 0 1 20 0v10" fill="none" stroke="#3a4a5e" stroke-width="2"/>
+          <path d="M10 27V18a6 6 0 0 1 12 0v9" fill="none" stroke="#5b6d82" stroke-width="1.5"/>
+          <path d="M16 13v14" stroke="#f2b544" stroke-width="1.5" stroke-dasharray="2.5 2"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">雪隧王道</span>
+          <span class="brand-sub">國5 · 雪山隧道 12.9 km</span>
+        </span>
+      </a>
+      <div class="toggle" role="group" aria-label="行駛方向">
+        <button type="button" class="dir-btn" data-dir="N" aria-pressed="false"><span class="dir-main">北上</span><span class="dir-sub">往台北</span></button>
+        <button type="button" class="dir-btn" data-dir="S" aria-pressed="false"><span class="dir-main">南下</span><span class="dir-sub">往宜蘭</span></button>
+      </div>
+    </header>
 
-  <main>
-    <section id="banner" class="banner banner-loading" role="status" aria-live="polite">
-      <span id="banner-text">讀取中…</span>
-      <small id="banner-sub"></small>
-    </section>
+    <main class="grid">
+      <section id="banner" class="banner banner-loading" role="status" aria-live="polite">
+        <div class="banner-copy">
+          <span class="eyebrow">車道建議 <span class="eyebrow-dim">推估</span></span>
+          <span id="banner-text" class="banner-text">讀取中…</span>
+          <small id="banner-sub" class="banner-sub"></small>
+        </div>
+        <svg class="tunnel" width="200" height="150" viewBox="0 0 200 150" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="road" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#1a222d"/>
+              <stop offset="1" stop-color="#0a0e14"/>
+            </linearGradient>
+            <radialGradient id="glow" cx=".5" cy=".42" r=".5">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect x="40" y="20" width="120" height="90" fill="url(#glow)"/>
+          <g class="rings" fill="none" stroke="currentColor">
+            <path d="M4 150V86a96 70 0 0 1 192 0v64" stroke-opacity=".28" stroke-width="1.5"/>
+            <path d="M36 150V82a64 47 0 0 1 128 0v68" stroke-opacity=".2"/>
+            <path d="M62 128V74a38 28 0 0 1 76 0v54" stroke-opacity=".15"/>
+            <path d="M78 110V69a22 16 0 0 1 44 0v41" stroke-opacity=".11"/>
+            <path d="M89 96V66a11 8 0 0 1 22 0v30" stroke-opacity=".08"/>
+          </g>
+          <path d="M14 150 96 66h8l82 84z" fill="url(#road)"/>
+          <path class="lights" d="M58 52 92 62M142 52 108 62" stroke-width="2" stroke-dasharray="5 6" stroke-opacity=".5"/>
+          <path class="edge" d="M14 150 96 66M186 150 104 66" stroke="currentColor" stroke-opacity=".35"/>
+          <path class="center" d="M100 150V66" stroke="#f2b544" stroke-opacity=".7" stroke-dasharray="6 6"/>
+          <path class="flow flow-left" d="M57 150 98 66" stroke-linecap="round"/>
+          <path class="flow flow-right" d="M143 150 102 66" stroke-linecap="round"/>
+          <text class="lane-tag tag-left" x="40" y="146" text-anchor="middle">左</text>
+          <text class="lane-tag tag-right" x="160" y="146" text-anchor="middle">右</text>
+        </svg>
+      </section>
 
-    <div id="stale" class="stale" hidden><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.8" r=".9" fill="currentColor"/></svg><span>資料已超過 3 分鐘未更新，僅供參考</span></div>
+      <div id="stale" class="stale" hidden><svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.8" r=".9" fill="currentColor"/></svg><span>資料已超過 3 分鐘未更新，僅供參考</span></div>
 
-    <section class="lanes">
-      <article class="lane" id="lane-left" data-lane="left">
-        <h2>左線<small>內側</small></h2>
-        <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
-        <div class="label">平均車速（推估）</div>
-        <div class="stat">前方車輛約 <b data-field="vehiclesAhead">--</b> 台<small>（推估）</small></div>
-        <div class="stat">慢車疑似 <b data-field="slowSuspect">--</b> 台<small>（推估）</small></div>
-      </article>
-      <article class="lane" id="lane-right" data-lane="right">
-        <h2>右線<small>外側</small></h2>
-        <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
-        <div class="label">平均車速（推估）</div>
-        <div class="stat">前方車輛約 <b data-field="vehiclesAhead">--</b> 台<small>（推估）</small></div>
-        <div class="stat">慢車疑似 <b data-field="slowSuspect">--</b> 台<small>（推估）</small></div>
-      </article>
-    </section>
+      <section class="lanes" aria-label="左右線即時推估">
+        <article class="lane" id="lane-left" data-lane="left">
+          <header class="lane-head">
+            <h2>左線<small>內側</small></h2>
+            <span class="chip">建議</span>
+          </header>
+          <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
+          <div class="gauge" aria-hidden="true"><span class="gauge-fill"></span></div>
+          <div class="label">平均車速（推估）</div>
+          <dl class="stats">
+            <div class="stat"><dt>前方車輛約</dt><dd><b data-field="vehiclesAhead">--</b><span class="u">台</span></dd></div>
+            <div class="stat"><dt>慢車疑似</dt><dd><b data-field="slowSuspect">--</b><span class="u">台</span></dd></div>
+          </dl>
+        </article>
+        <article class="lane" id="lane-right" data-lane="right">
+          <header class="lane-head">
+            <h2>右線<small>外側</small></h2>
+            <span class="chip">建議</span>
+          </header>
+          <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
+          <div class="gauge" aria-hidden="true"><span class="gauge-fill"></span></div>
+          <div class="label">平均車速（推估）</div>
+          <dl class="stats">
+            <div class="stat"><dt>前方車輛約</dt><dd><b data-field="vehiclesAhead">--</b><span class="u">台</span></dd></div>
+            <div class="stat"><dt>慢車疑似</dt><dd><b data-field="slowSuspect">--</b><span class="u">台</span></dd></div>
+          </dl>
+        </article>
+      </section>
 
-    <p id="hint" class="hint"></p>
+      <section class="entry" aria-label="進隧道前">
+        <span class="eyebrow">進隧道前決定車道</span>
+        <div class="route" aria-hidden="true">
+          <span class="route-node" data-route="from">--</span>
+          <span class="route-track"><span class="route-dist" data-route="dist">--</span></span>
+          <span class="route-node route-end">隧道口</span>
+        </div>
+        <p id="hint" class="hint"></p>
+      </section>
 
-    <p class="meta">
-      資料時間 <time id="data-time">--:--</time>（台北時間）·
-      來源：<span id="source">--</span>
-    </p>
-    <p id="error" class="error" hidden></p>
+      <div class="meta">
+        <p class="meta-time"><span class="live" aria-hidden="true"></span><span class="meta-k">資料時間</span><time id="data-time">--:--</time><span class="tz">台北時間</span></p>
+        <p class="meta-src">來源 <span id="source">--</span></p>
+      </div>
+      <p id="error" class="error" hidden></p>
+    </main>
 
-    <p class="safety"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.6 12.4l8.8-8.8" stroke="currentColor" stroke-width="1.5"/></svg><span>請勿開車時操作<span class="sep" aria-hidden="true">·</span>數值皆為推估，非官方資訊</span></p>
-    <nav class="links"><a href="explain.html" id="explain-link">推估邏輯說明 ›</a></nav>
-  </main>
+    <footer class="foot">
+      <p class="safety"><svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.6 12.4l8.8-8.8" stroke="currentColor" stroke-width="1.5"/></svg><span>請勿開車時操作<span class="sep" aria-hidden="true">·</span>數值皆為推估，非官方資訊</span></p>
+      <nav class="links"><a href="explain.html" id="explain-link">推估邏輯說明<svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav>
+    </footer>
+  </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
