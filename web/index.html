@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b111a">
+  <meta name="description" content="國道5號雪山隧道左線／右線車道建議（推估，非官方）">
+  <title>雪隧車道 xueshan-lane</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1 class="brand"><img src="/icons/icon.svg" alt="" width="28" height="28"> 雪隧車道</h1>
+    <div class="toggle" role="group" aria-label="行駛方向">
+      <button type="button" class="dir-btn" data-dir="N" aria-pressed="false">北上<small>往台北</small></button>
+      <button type="button" class="dir-btn" data-dir="S" aria-pressed="false">南下<small>往宜蘭</small></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="banner" class="banner banner-loading" role="status" aria-live="polite">
+      <span id="banner-text">讀取中…</span>
+      <small id="banner-sub"></small>
+    </section>
+
+    <div id="stale" class="stale" hidden>⚠ 資料已超過 3 分鐘未更新，僅供參考</div>
+
+    <section class="lanes">
+      <article class="lane" id="lane-left" data-lane="left">
+        <h2>左線<small>內側</small></h2>
+        <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
+        <div class="label">平均車速（推估）</div>
+        <div class="stat">前方車輛約 <b data-field="vehiclesAhead">--</b> 台<small>（推估）</small></div>
+        <div class="stat">慢車疑似 <b data-field="slowSuspect">--</b> 台<small>（推估）</small></div>
+      </article>
+      <article class="lane" id="lane-right" data-lane="right">
+        <h2>右線<small>外側</small></h2>
+        <div class="speed"><span class="num" data-field="speed">--</span><span class="unit">km/h</span></div>
+        <div class="label">平均車速（推估）</div>
+        <div class="stat">前方車輛約 <b data-field="vehiclesAhead">--</b> 台<small>（推估）</small></div>
+        <div class="stat">慢車疑似 <b data-field="slowSuspect">--</b> 台<small>（推估）</small></div>
+      </article>
+    </section>
+
+    <p id="hint" class="hint"></p>
+
+    <p class="meta">
+      資料時間 <time id="data-time">--:--</time>（台北時間）·
+      來源：<span id="source">--</span>
+    </p>
+    <p id="error" class="error" hidden></p>
+
+    <p class="safety">🚫 請勿開車時操作　·　數值皆為推估，非官方資訊</p>
+    <nav class="links"><a href="/explain.html" id="explain-link">推估邏輯說明 ›</a></nav>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
