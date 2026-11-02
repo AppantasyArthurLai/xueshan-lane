@@ -266,6 +266,34 @@ body.is-stale .banner-go { background-color: #1d2a22; border-color: rgba(242, 18
 .tunnel .lane-tag { font: 700 11px var(--font-sans); fill: var(--ink-3); }
 .banner-go.banner-left .tag-left, .banner-go.banner-right .tag-right { fill: var(--go-ink); }
 .tunnel .lights { stroke: #e9f1ff; stroke-linecap: round; }
+/* 隧道頂：拱環與頂燈自消失點 (100,66) 以透視縮放朝觀者流動。
+   與車道光點共用 --dur（由 app.js 依車速寫在 .tunnel 上），一圈 = 4 × --dur，
+   N=6 個元素以負延遲錯開 1/6 圈 → 無縫循環。僅動 transform / opacity。 */
+.ring, .light {
+  transform-box: view-box;
+  transform-origin: 100px 66px;
+  transform: scale(var(--s, 1));
+  opacity: var(--o, 1);
+  will-change: transform, opacity;
+  animation: ceiling calc(var(--dur, 2.4s) * 4) linear infinite;
+  animation-delay: calc(var(--dur, 2.4s) * var(--i, 0) * -4 / 6);
+}
+.ring { vector-effect: non-scaling-stroke; }
+/* 深度 z 由 8 線性逼近到 0.85，scale = 1/z（真透視：遠處密、近處疏），遠處霧化淡入、穿過觀者時淡出 */
+@keyframes ceiling {
+  0%   { transform: scale(.125); opacity: 0; }
+  20%  { transform: scale(.152); opacity: .3; }
+  40%  { transform: scale(.195); opacity: .5; }
+  60%  { transform: scale(.27);  opacity: .7; }
+  70%  { transform: scale(.334); opacity: .8; }
+  80%  { transform: scale(.439); opacity: .9; }
+  90%  { transform: scale(.639); opacity: 1; }
+  95%  { transform: scale(.828); opacity: .75; }
+  100% { transform: scale(1.176); opacity: 0; }
+}
+.tunnel { --dur-left: 2.4s; --dur-right: 2.4s; }
+.flow-left { --dur: var(--dur-left); }
+.flow-right { --dur: var(--dur-right); }
 .flow {
   fill: none;
   stroke-width: 3;

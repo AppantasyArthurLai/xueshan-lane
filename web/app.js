@@ -145,9 +145,24 @@
     const speed = Number(lane?.speed);
     const ok = Number.isFinite(speed) && speed > 0;
     $('.gauge', el).style.setProperty('--v', ok ? String(Math.min(100, speed)) : '0');
-    // 隧道光點流速：車速越快、光點越快
-    const flow = $(`.flow-${el.dataset.lane}`);
-    if (flow) flow.style.setProperty('--dur', ok ? `${(160 / Math.max(20, speed)).toFixed(2)}s` : '6s');
+    // 隧道光點流速：車速越快、光點越快（變數寫在 .tunnel 上，光點與隧道頂共用）
+    const tunnel = $('.tunnel');
+    if (tunnel) tunnel.style.setProperty(`--dur-${el.dataset.lane}`, `${flowDur(speed)}s`);
+  }
+
+  function flowDur(speed) {
+    const v = Number(speed);
+    return Number.isFinite(v) && v > 0 ? +(160 / Math.max(20, v)).toFixed(2) : 6;
+  }
+
+  // 隧道頂流速：跟隨建議車道的光點；無明確建議時取兩線平均
+  function renderCeiling(lanes, rec) {
+    const tunnel = $('.tunnel');
+    if (!tunnel) return;
+    const l = flowDur(lanes?.left?.speed);
+    const r = flowDur(lanes?.right?.speed);
+    const dur = rec?.rec === 'left' ? l : rec?.rec === 'right' ? r : +((l + r) / 2).toFixed(2);
+    tunnel.style.setProperty('--dur', `${dur}s`);
   }
 
   function renderStale() {
@@ -163,6 +178,7 @@
     renderBanner(data.recommendation);
     renderLane('#lane-left', data.lanes?.left, data.recommendation);
     renderLane('#lane-right', data.lanes?.right, data.recommendation);
+    renderCeiling(data.lanes, data.recommendation);
     const t = new Date(data.dataTime);
     const timeEl = $('#data-time');
     if (Number.isFinite(t.getTime())) {

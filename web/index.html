@@ -52,15 +52,23 @@
             </radialGradient>
           </defs>
           <rect x="40" y="20" width="120" height="90" fill="url(#glow)"/>
-          <g class="rings" fill="none" stroke="currentColor">
-            <path d="M4 150V86a96 70 0 0 1 192 0v64" stroke-opacity=".28" stroke-width="1.5"/>
-            <path d="M36 150V82a64 47 0 0 1 128 0v68" stroke-opacity=".2"/>
-            <path d="M62 128V74a38 28 0 0 1 76 0v54" stroke-opacity=".15"/>
-            <path d="M78 110V69a22 16 0 0 1 44 0v41" stroke-opacity=".11"/>
-            <path d="M89 96V66a11 8 0 0 1 22 0v30" stroke-opacity=".08"/>
+          <g class="rings" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="1.5">
+            <path class="ring" style="--i:0;--s:1;--o:1" d="M4 150V86a96 70 0 0 1 192 0v64"/>
+            <path class="ring" style="--i:1;--s:0.7;--o:0.78" d="M4 150V86a96 70 0 0 1 192 0v64"/>
+            <path class="ring" style="--i:2;--s:0.48;--o:0.58" d="M4 150V86a96 70 0 0 1 192 0v64"/>
+            <path class="ring" style="--i:3;--s:0.33;--o:0.42" d="M4 150V86a96 70 0 0 1 192 0v64"/>
+            <path class="ring" style="--i:4;--s:0.22;--o:0.3" d="M4 150V86a96 70 0 0 1 192 0v64"/>
+            <path class="ring" style="--i:5;--s:0.14;--o:0.2" d="M4 150V86a96 70 0 0 1 192 0v64"/>
           </g>
           <path d="M14 150 96 66h8l82 84z" fill="url(#road)"/>
-          <path class="lights" d="M58 52 92 62M142 52 108 62" stroke-width="2" stroke-dasharray="5 6" stroke-opacity=".5"/>
+          <g class="lights" stroke-width="2.4" stroke-opacity=".55">
+            <path class="light" style="--i:0.5;--s:0.85;--o:0.9" d="M44 45.2 30 40M156 45.2 170 40"/>
+            <path class="light" style="--i:1.5;--s:0.58;--o:0.7" d="M44 45.2 30 40M156 45.2 170 40"/>
+            <path class="light" style="--i:2.5;--s:0.4;--o:0.52" d="M44 45.2 30 40M156 45.2 170 40"/>
+            <path class="light" style="--i:3.5;--s:0.27;--o:0.38" d="M44 45.2 30 40M156 45.2 170 40"/>
+            <path class="light" style="--i:4.5;--s:0.18;--o:0.27" d="M44 45.2 30 40M156 45.2 170 40"/>
+            <path class="light" style="--i:5.5;--s:0.12;--o:0.18" d="M44 45.2 30 40M156 45.2 170 40"/>
+          </g>
           <path class="edge" d="M14 150 96 66M186 150 104 66" stroke="currentColor" stroke-opacity=".35"/>
           <path class="center" d="M100 150V66" stroke="#f2b544" stroke-opacity=".7" stroke-dasharray="6 6"/>
           <path class="flow flow-left" d="M57 150 98 66" stroke-linecap="round"/>

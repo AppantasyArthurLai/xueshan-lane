@@ -279,3 +279,49 @@ test('numbers roll to new values and respect reduced motion', async ({ browser }
     await ctx.close();
   }
 });
+
+test('tunnel ceiling streams toward viewer, tied to lane-dot speed; static under reduced motion', async ({ browser }) => {
+  for (const reducedMotion of ['no-preference', 'reduce']) {
+    const ctx = await browser.newContext({ reducedMotion });
+    const page = await ctx.newPage();
+    await page.route('**/api/lanes*', (route) => route.fulfill({
+      json: {
+        dir: 'S', source: 'tdx', sourceLabel: 'TDX', dataTime: new Date().toISOString(),
+        lanes: { left: { speed: 80, vehiclesAhead: 100, slowSuspect: 1 }, right: { speed: 64, vehiclesAhead: 90, slowSuspect: 2 } },
+        recommendation: { rec: 'left', diff: 16, held: false },
+      },
+    }));
+    await page.goto('/');
+    await expect(page.locator('#banner')).toHaveClass(/banner-left/);
+    const info = await page.evaluate(() => {
+      const els = [...document.querySelectorAll('.tunnel .ring, .tunnel .light')];
+      const flow = document.querySelector('.flow-left');
+      return {
+        count: els.length,
+        rings: document.querySelectorAll('.tunnel .ring').length,
+        lights: document.querySelectorAll('.tunnel .light').length,
+        names: els.map((el) => getComputedStyle(el).animationName),
+        running: els.map((el) => el.getAnimations().filter((a) => a.playState === 'running').length),
+        durs: els.map((el) => getComputedStyle(el).animationDuration),
+        delays: [...new Set(els.map((el) => getComputedStyle(el).animationDelay))].length,
+        flowDur: getComputedStyle(flow).animationDuration,
+        flowRunning: flow.getAnimations().length,
+      };
+    });
+    expect(info.rings).toBeGreaterThanOrEqual(4);
+    expect(info.lights).toBeGreaterThanOrEqual(4);
+    if (reducedMotion === 'reduce') {
+      expect(info.names.every((n) => n === 'none')).toBe(true);
+      expect(info.running.every((n) => n === 0)).toBe(true);
+      expect(info.flowRunning).toBe(0);
+    } else {
+      expect(info.names.every((n) => n === 'ceiling')).toBe(true);
+      expect(info.running.every((n) => n === 1)).toBe(true);
+      // 160 / 80 km/h = 2s per lane-dot cycle; ceiling loop = 4 × that same --dur
+      expect(info.flowDur).toBe('2s');
+      expect(new Set(info.durs)).toEqual(new Set(['8s']));
+      expect(info.delays).toBe(info.count); // staggered
+    }
+    await ctx.close();
+  }
+});
