@@ -7,7 +7,7 @@
   <title>推估邏輯說明 · 雪隧王道</title>
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <meta name="color-scheme" content="dark">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="page-doc">
   <div class="shell doc-shell">
@@ -28,7 +28,7 @@
     <ul>
       <li>交通部「TDX 運輸資料流通服務」的高速公路車輛偵測器（VD）即時資料：每個偵測器、每條車道的<b>車速</b>、<b>佔有率</b>與<b>車流量</b>（通常每分鐘一筆）。</li>
       <li>只取國道5號、里程位於雪山隧道內（約 15K～28K，坪林至頭城，隧道長約 12.9 公里）的偵測器，並依北上／南下分開計算。</li>
-      <li>伺服器每 45 秒最多向資料來源更新一次，網頁每 30 秒自動重新整理。</li>
+      <li>伺服器每 60 秒最多向 TDX 更新一次（南北共用一次呼叫；TDX 來源本身約落後 2 分鐘），網頁每 30 秒自動重新整理。左線＝LaneID 0（內側車道）目前僅依 TDX 規格，尚未以現場畫面驗證。TDX 失敗時會明確顯示「資料暫時無法取得」，不會改用模擬資料。</li>
       <li>若尚未設定 TDX 金鑰，或 TDX 暫時無法連線，畫面會標示「模擬資料」，此時的數字只用來展示畫面，<b>不代表真實路況</b>。</li>
     </ul>
 
@@ -54,7 +54,7 @@
     </ul>
 
     <h2><span class="no">07</span>資料時間與過期提醒</h2>
-    <p>畫面上的「資料時間」是偵測器資料的收集時間（台北時間）。若超過 3 分鐘沒有新資料，會出現<span class="swatch sw-warn" aria-hidden="true"></span>黃色提醒，此時建議僅供參考。</p>
+    <p>畫面上的「資料時間」是偵測器資料的收集時間（台北時間）。若資料時間超過 8 分鐘（TDX 資料本身約落後 2–5 分鐘），會出現<span class="swatch sw-warn" aria-hidden="true"></span>黃色提醒，此時建議僅供參考。</p>
 
     <h2><span class="no">08</span>重要聲明</h2>
     <ul>

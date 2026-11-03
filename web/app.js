@@ -2,7 +2,7 @@
 (function () {
   const STORAGE_KEY = 'xueshan-lane:dir';
   const REFRESH_MS = 30 * 1000;
-  const STALE_MS = 3 * 60 * 1000;
+  const STALE_MS = 8 * 60 * 1000; // TDX 資料時間本身就落後約 2–5 分鐘，再加伺服器 60 秒快取
 
   // 靜態行車提示（距離為約略值）
   const HINTS = {
@@ -114,7 +114,10 @@
     let pre = '';
     let main;
     let detail = '';
-    if (!rec || rec.rec === 'unknown') {
+    if (lastData && (lastData.unavailable || lastData.source === 'unavailable')) {
+      banner.classList.add('banner-similar');
+      main = '資料暫時無法取得';
+    } else if (!rec || rec.rec === 'unknown') {
       banner.classList.add('banner-similar');
       main = '資料不足';
     } else if (rec.rec === 'similar') {
@@ -175,6 +178,13 @@
 
   function render(data) {
     lastData = data;
+    const e = $('#error');
+    if (data.unavailable || data.source === 'unavailable') {
+      e.textContent = '即時資料暫時無法取得（交通部 TDX 連線失敗），目前沒有可用的車道資料。';
+      e.hidden = false;
+    } else {
+      e.hidden = true;
+    }
     renderBanner(data.recommendation);
     renderLane('#lane-left', data.lanes?.left, data.recommendation);
     renderLane('#lane-right', data.lanes?.right, data.recommendation);
@@ -202,7 +212,6 @@
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (seq !== reqSeq || wanted !== dir) return; // 已切換方向，丟棄舊回應
-      $('#error').hidden = true;
       render(data);
     } catch (err) {
       if (seq !== reqSeq) return;

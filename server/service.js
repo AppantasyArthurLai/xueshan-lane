@@ -1,12 +1,12 @@
 'use strict';
 /**
- * 資料服務：選擇資料來源（TDX / 模擬）、失敗時退回模擬、45 秒記憶體快取、保存前次建議（遲滯用）。
+ * 資料服務：選擇資料來源（TDX / 模擬）、TDX 失敗時回報 unavailable（不改用模擬）、60 秒記憶體快取、保存前次建議（遲滯用）。
  */
 const mock = require('./adapters/mock');
 const { createTdxAdapter } = require('./adapters/tdx');
 const { summarize } = require('./estimate');
 
-const CACHE_TTL_MS = 45 * 1000;
+const CACHE_TTL_MS = 60 * 1000; // TDX 上游每 60 秒更新
 
 const DIR_INFO = {
   N: { label: '北上', towards: '往台北' },
@@ -16,7 +16,7 @@ const DIR_INFO = {
 const SOURCE_LABEL = {
   tdx: '交通部 TDX 即時 VD 資料',
   mock: '模擬資料',
-  'mock-fallback': '模擬資料（TDX 暫時無法取得）',
+  unavailable: '資料暫時無法取得（TDX 連線失敗）',
 };
 
 function createService({ env = process.env, config, now = () => Date.now(), log = console } = {}) {
@@ -36,9 +36,10 @@ function createService({ env = process.env, config, now = () => Date.now(), log 
       try {
         raw = await tdx.fetchLanes(dir);
       } catch (err) {
+        // 不靜默改用模擬資料：明確回報「資料暫時無法取得」
         error = err.message || String(err);
-        log.warn?.(`[tdx] ${dir} 失敗，改用模擬資料：${error}`);
-        raw = { ...(await mock.fetchLanes(dir, new Date(now()))), source: 'mock-fallback' };
+        log.warn?.(`[tdx] ${dir} 失敗：${error}`);
+        raw = { source: 'unavailable', dir, dataTime: null, detectors: [] };
       }
     } else {
       raw = await mock.fetchLanes(dir, new Date(now()));
@@ -60,13 +61,23 @@ function createService({ env = process.env, config, now = () => Date.now(), log 
       estimated: true,
       note: '所有數值皆為推估，僅供參考；請勿於駕駛中操作。',
     };
-    if (error) payload.error = error;
+    if (raw.source === 'tdx') {
+      payload.srcUpdateTime = raw.srcUpdateTime;
+      payload.tunnelVdCount = raw.tunnelVdCount;
+      payload.laneMapVerified = config.laneMapVerified === true;
+      payload.laneMapNote = config.laneMapNote;
+    }
+    if (error) {
+      payload.error = error;
+      payload.unavailable = true;
+    }
     return payload;
   }
 
   async function getLanes(dir) {
     const hit = cache.get(dir);
-    if (hit && now() - hit.at < CACHE_TTL_MS) return { ...hit.payload, cached: true };
+    const ttl = hit?.payload.unavailable ? 15000 : CACHE_TTL_MS; // 失敗時較快重試
+    if (hit && now() - hit.at < ttl) return { ...hit.payload, cached: true };
     if (inflight.has(dir)) return inflight.get(dir);
     const p = load(dir)
       .then((payload) => {

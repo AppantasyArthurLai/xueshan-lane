@@ -1,17 +1,61 @@
 {
-  "_comment": "雪山隧道 VD 偵測器選取設定。待取得 TDX 金鑰後需實際核對：里程範圍、RoadID、方向代碼、車道編號對應（LaneID→左/右線）以及是否改用明確 VDID 清單。",
-  "verified": false,
+  "_comment": "雪山隧道 VD 選取設定。2026-11-03 以 TDX 實際資料核對：方向（VDID 的 N/S）、里程範圍、每支 2 車道皆已驗證。LaneID 0=左線（內側）僅依 TDX 規格，尚未以現場影像驗證（laneMapVerified=false）。",
+  "verified": true,
   "roadId": "000050",
   "roadNameIncludes": "國道5號",
   "vdidIncludes": "-N5-",
   "tunnelLengthKm": 12.9,
-  "mileageRangeKm": { "from": 15.0, "to": 28.2 },
-  "directions": {
-    "N": { "codes": ["N", "1"], "label": "北上", "towards": "往台北" },
-    "S": { "codes": ["S", "0"], "label": "南下", "towards": "往宜蘭" }
+  "mileageRangeKm": {
+    "from": 15.0,
+    "to": 28.3
   },
-  "laneMap": { "0": "left", "1": "right" },
-  "explicitVDIDs": { "N": [], "S": [] },
+  "directions": {
+    "N": {
+      "codes": [
+        "N",
+        "1"
+      ],
+      "label": "北上",
+      "towards": "往台北",
+      "mileageRangeKm": {
+        "from": 15.0,
+        "to": 28.0
+      },
+      "expectedVdCount": 19,
+      "observedRange": "15.488K–27.779K"
+    },
+    "S": {
+      "codes": [
+        "S",
+        "0"
+      ],
+      "label": "南下",
+      "towards": "往宜蘭",
+      "mileageRangeKm": {
+        "from": 15.0,
+        "to": 28.3
+      },
+      "expectedVdCount": 21,
+      "observedRange": "15.139K–28.236K"
+    }
+  },
+  "laneMap": {
+    "0": "left",
+    "1": "right"
+  },
+  "explicitVDIDs": {
+    "N": [],
+    "S": []
+  },
   "sampleIntervalSec": 60,
-  "staticCacheHours": 6
+  "verifiedAt": "2026-11-03",
+  "verifiedFields": [
+    "direction",
+    "mileageRange",
+    "laneCount",
+    "sampleInterval"
+  ],
+  "laneMapVerified": false,
+  "laneMapNote": "LaneID 0=左線依 TDX 規格（最內側車道），未經現場畫面驗證",
+  "lanesPerVd": 2
 }

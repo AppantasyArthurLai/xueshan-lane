@@ -104,7 +104,7 @@ test('direction toggle works and persists across reload', async ({ page }) => {
   await page.screenshot({ path: `${SCREENS}/northbound.png`, fullPage: true });
 });
 
-test('stale warning when data is older than 3 minutes', async ({ page }) => {
+test('stale warning when data is older than 8 minutes', async ({ page }) => {
   const old = new Date(Date.now() - 10 * 60 * 1000).toISOString();
   await page.route('**/api/lanes*', (route) =>
     route.fulfill({
@@ -117,7 +117,7 @@ test('stale warning when data is older than 3 minutes', async ({ page }) => {
   );
   await page.goto('/');
   await expect(page.locator('#stale')).toBeVisible();
-  await expect(page.locator('#stale')).toContainText('3 分鐘');
+  await expect(page.locator('#stale')).toContainText('8 分鐘');
   await noHorizontalOverflow(page);
   await page.screenshot({ path: `${SCREENS}/stale.png`, fullPage: true });
 });
@@ -324,4 +324,22 @@ test('tunnel ceiling streams toward viewer, tied to lane-dot speed; static under
     }
     await ctx.close();
   }
+});
+
+test('TDX unavailable shows a clear message, not mock data', async ({ page }) => {
+  await page.route('**/api/lanes*', (route) =>
+    route.fulfill({
+      json: {
+        dir: 'S', source: 'unavailable', sourceLabel: '資料暫時無法取得（TDX 連線失敗）', dataTime: null, unavailable: true,
+        error: 'TDX HTTP 503',
+        lanes: { left: { speed: null }, right: { speed: null } },
+        recommendation: { rec: 'unknown', diff: null, held: false },
+      },
+    }),
+  );
+  await page.goto('/');
+  await expect(page.locator('#banner-text')).toContainText('資料暫時無法取得');
+  await expect(page.locator('#error')).toBeVisible();
+  await expect(page.locator('#error')).toContainText('TDX');
+  await expect(page.locator('#source')).not.toHaveText(/模擬/);
 });

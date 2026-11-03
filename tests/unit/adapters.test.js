@@ -44,21 +44,9 @@ test('tdx: parseMileageKm', () => {
   assert.equal(tdx.parseMileageKm('abc'), null);
 });
 
-const STATIC = {
-  VDs: [
-    { VDID: 'VD-N5-S-16.000-M-LOOP', RoadID: '000050', RoadName: '國道5號', RoadDirection: 'S', LocationMile: '16K+000' },
-    { VDID: 'VD-N5-N-20.000-M-LOOP', RoadID: '000050', RoadName: '國道5號', RoadDirection: 'N', LocationMile: '20K+000' },
-    { VDID: 'VD-N5-S-10.000-M-LOOP', RoadID: '000050', RoadName: '國道5號', RoadDirection: 'S', LocationMile: '10K+000' },
-    { VDID: 'VD-N1-S-20.000-M-LOOP', RoadID: '000010', RoadName: '國道1號', RoadDirection: 'S', LocationMile: '20K+000' },
-  ],
-};
-
-test('tdx: selectTunnelVDs filters Freeway 5 within tunnel mileage by direction', () => {
-  const sel = tdx.selectTunnelVDs(STATIC.VDs, config);
-  assert.deepEqual(sel.S.map((v) => v.vdid), ['VD-N5-S-16.000-M-LOOP']);
-  assert.deepEqual(sel.N.map((v) => v.vdid), ['VD-N5-N-20.000-M-LOOP']);
-  const explicit = tdx.selectTunnelVDs(STATIC.VDs, { ...config, explicitVDIDs: { N: ['X1'], S: [] } });
-  assert.deepEqual(explicit.N.map((v) => v.vdid), ['X1']);
+test('tdx: parseVdid extracts direction and mileage', () => {
+  assert.deepEqual(tdx.parseVdid('VD-N5-S-20.412-M-PS-LOOP'), { dir: 'S', mileageKm: 20.412 });
+  assert.equal(tdx.parseVdid('VD-N1-S-20.000-M-LOOP'), null);
 });
 
 test('tdx: lanesFromLive maps LaneID to left/right and volume to flow/h', () => {
@@ -79,59 +67,76 @@ test('tdx: lanesFromLive maps LaneID to left/right and volume to flow/h', () => 
   assert.equal(lanes.right, undefined);
 });
 
-function fakeFetch({ failLive = false } = {}) {
-  const calls = { token: 0, static: 0, live: 0 };
+const LIVE = {
+  UpdateTime: '2026-11-04T11:00:00+08:00',
+  VDLives: [
+    {
+      VDID: 'VD-N5-S-16.000-M-LOOP',
+      Status: 0,
+      DataCollectTime: '2026-11-04T11:00:00+08:00',
+      LinkFlows: [{ Lanes: [
+        { LaneID: 0, Speed: 82, Occupancy: 9, Vehicles: [{ Volume: 20 }], ErrorType: 'diag0' },
+        { LaneID: 1, Speed: 64, Occupancy: 14, Vehicles: [{ Volume: 15 }], ErrorType: 'diag0' },
+      ] }],
+    },
+    { VDID: 'VD-N5-N-20.000-M-LOOP', Status: 0, DataCollectTime: '2026-11-04T10:59:00+08:00',
+      LinkFlows: [{ Lanes: [{ LaneID: 0, Speed: 70, Occupancy: 9, Vehicles: [{ Volume: 10 }] }] }] },
+  ],
+};
+
+function fakeFetch({ failLive = false, unauthorizedOnce = false } = {}) {
+  const calls = { token: 0, live: 0 };
+  let sent401 = false;
   const json = (obj, status = 200) => ({ ok: status < 400, status, json: async () => obj });
   const impl = async (url) => {
     if (url === tdx.TOKEN_URL) {
       calls.token++;
       return json({ access_token: 'tok', expires_in: 86400 });
     }
-    if (url === tdx.STATIC_URL) {
-      calls.static++;
-      return json(STATIC);
-    }
     if (url === tdx.LIVE_URL) {
       calls.live++;
       if (failLive) return json({}, 503);
-      return json({
-        UpdateTime: '2026-11-04T11:00:00+08:00',
-        VDLives: [
-          {
-            VDID: 'VD-N5-S-16.000-M-LOOP',
-            Status: 0,
-            DataCollectTime: '2026-11-04T11:00:00+08:00',
-            LinkFlows: [
-              {
-                Lanes: [
-                  { LaneID: 0, Speed: 82, Occupancy: 9, Vehicles: [{ Volume: 20 }] },
-                  { LaneID: 1, Speed: 64, Occupancy: 14, Vehicles: [{ Volume: 15 }] },
-                ],
-              },
-            ],
-          },
-        ],
-      });
+      if (unauthorizedOnce && !sent401) { sent401 = true; return json({}, 401); }
+      return json(LIVE);
     }
     throw new Error('unexpected ' + url);
   };
   return { impl, calls };
 }
 
-test('tdx adapter: caches token and static VD list', async () => {
+const noSleep = async () => {};
+
+test('tdx adapter: one live call serves both directions; caches token and live for 60s', async () => {
+  let t = Date.parse('2026-11-04T03:00:00Z');
   const { impl, calls } = fakeFetch();
-  const a = tdx.createTdxAdapter({ clientId: 'id', clientSecret: 'sec', config, fetchImpl: impl });
+  const a = tdx.createTdxAdapter({ clientId: 'id', clientSecret: 'sec', config, fetchImpl: impl, now: () => t, sleep: noSleep });
   const r1 = await a.fetchLanes('S');
-  await a.fetchLanes('S');
+  const n1 = await a.fetchLanes('N');
   assert.equal(calls.token, 1);
-  assert.equal(calls.static, 1);
-  assert.equal(calls.live, 2);
+  assert.equal(calls.live, 1);
   assert.equal(r1.source, 'tdx');
   assert.equal(r1.dataTime, '2026-11-04T03:00:00.000Z');
   assert.equal(r1.detectors[0].lanes.right.flowPerHour, 900);
+  assert.equal(n1.detectors[0].id, 'VD-N5-N-20.000-M-LOOP');
+  t += 61000;
+  await a.fetchLanes('S');
+  assert.equal(calls.live, 2);
+  assert.equal(calls.token, 1);
+  t += 23 * 3600 * 1000 + 1000; // 到期前 1 小時換新
+  await a.fetchLanes('S');
+  assert.equal(calls.token, 2);
 });
 
-test('service: uses mock without keys and caches for 45s', async () => {
+test('tdx adapter: refreshes token and retries once on 401', async () => {
+  const { impl, calls } = fakeFetch({ unauthorizedOnce: true });
+  const a = tdx.createTdxAdapter({ clientId: 'id', clientSecret: 'sec', config, fetchImpl: impl, sleep: noSleep });
+  const r = await a.fetchLanes('S');
+  assert.equal(r.source, 'tdx');
+  assert.equal(calls.token, 2);
+  assert.equal(calls.live, 2);
+});
+
+test('service: uses mock without keys and caches for 60s', async () => {
   let t = Date.parse('2026-11-04T03:00:00Z');
   const svc = createService({ env: {}, config, now: () => t });
   assert.equal(svc.mode, 'mock');
@@ -142,11 +147,11 @@ test('service: uses mock without keys and caches for 45s', async () => {
   assert.ok(Number.isFinite(a.lanes.left.speed));
   t += 30000;
   assert.equal((await svc.getLanes('S')).cached, true);
-  t += 20000;
+  t += 31000;
   assert.equal((await svc.getLanes('S')).cached, false);
 });
 
-test('service: falls back to mock with source "mock-fallback" on TDX error', async () => {
+test('service: reports "unavailable" (no silent mock) on TDX error', async () => {
   const realFetch = globalThis.fetch;
   globalThis.fetch = async () => {
     throw new Error('network down');
@@ -155,9 +160,12 @@ test('service: falls back to mock with source "mock-fallback" on TDX error', asy
     const svc = createService({ env: { TDX_CLIENT_ID: 'x', TDX_CLIENT_SECRET: 'y' }, config, log: { warn() {} } });
     assert.equal(svc.mode, 'tdx');
     const r = await svc.getLanes('N');
-    assert.equal(r.source, 'mock-fallback');
+    assert.equal(r.source, 'unavailable');
+    assert.equal(r.unavailable, true);
     assert.match(r.error, /network down/);
-    assert.ok(Number.isFinite(r.lanes.right.speed));
+    assert.equal(r.lanes.right.speed, null);
+    assert.equal(r.recommendation.rec, 'unknown');
+    assert.equal(r.detectorCount, 0);
   } finally {
     globalThis.fetch = realFetch;
   }

@@ -1,0 +1,2731 @@
+{
+ "UpdateTime": "2026-11-03T10:35:08+08:00",
+ "UpdateInterval": 60,
+ "SrcUpdateTime": "2026-11-03T10:33:00+08:00",
+ "SrcUpdateInterval": 60,
+ "AuthorityCode": "NFB",
+ "LinkVersion": "25.06.1",
+ "VDLives": [
+  {
+   "VDID": "VD-N5-S-14.540-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001450F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 22,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 17,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-15.139-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001500F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 15,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 93,
+       "Occupancy": 12,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 16,
+         "Speed": 92
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-15.478-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001530F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 15,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 20,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 10,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 13,
+         "Speed": 85
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-16.187-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001600F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 17,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 20,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 10,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-16.902-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001600F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 70,
+       "Occupancy": 26,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 28,
+         "Speed": 69
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 15,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 68
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-17.608-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001700F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 74,
+       "Occupancy": 24,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 27,
+         "Speed": 73
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 83,
+       "Occupancy": 15,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 17,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-18.312-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001800F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 78,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 18,
+         "Speed": 77
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 83,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 82
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-19.013-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001900F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 77,
+       "Occupancy": 12,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 19,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 87
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-19.677-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500001900F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 76,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 75
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 16,
+         "Speed": 85
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-20.413-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002000F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 19,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 22,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 10,
+         "Speed": 85
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 85
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-21.063-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002100F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 72,
+       "Occupancy": 23,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 25,
+         "Speed": 71
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 18,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 19,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 91
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-21.807-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002100F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 73,
+       "Occupancy": 24,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 24,
+         "Speed": 72
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 79,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 15,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 71
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-22.506-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002200F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 71,
+       "Occupancy": 23,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 25,
+         "Speed": 70
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 84,
+       "Occupancy": 15,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 4,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-23.207-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002300F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 70,
+       "Occupancy": 24,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 25,
+         "Speed": 69
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 79,
+       "Occupancy": 21,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 75
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-23.910-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002300F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 66,
+       "Occupancy": 26,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 27,
+         "Speed": 65
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 22,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 20,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 75
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-24.678-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002400F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 74,
+       "Occupancy": 22,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 25,
+         "Speed": 73
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 22,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 20,
+         "Speed": 75
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 62
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-25.312-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002520G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 72,
+       "Occupancy": 18,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 71
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 77,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 14,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-26.013-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002600G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 18,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 22,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 76,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 14,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-26.706-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002600G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 79,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 18,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 82,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 13,
+         "Speed": 81
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-27.442-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002700G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 78,
+       "Occupancy": 17,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 77
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 83,
+       "Occupancy": 19,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 19,
+         "Speed": 82
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-27.748-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002700G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 18,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 23,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 82,
+       "Occupancy": 18,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 81
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-S-28.236-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500002820G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 77,
+       "Occupancy": 20,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 19,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 17,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 90
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-14.550-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101450F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 98,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 8,
+         "Speed": 97
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 98,
+       "Occupancy": 8,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 8,
+         "Speed": 98
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 96
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-15.488-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101530F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 5,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 89,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 10,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 3,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-16.196-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101600F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 83,
+       "Occupancy": 5,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 82
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 90,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 90
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 89
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-16.900-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101600F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 18,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 89,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 8,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-17.608-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101700F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 76,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 75
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 65,
+       "Occupancy": 2,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 2,
+         "Speed": 64
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-18.313-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101800F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 75,
+       "Occupancy": 8,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 9,
+         "Speed": 74
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 92,
+       "Occupancy": 1,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 1,
+         "Speed": 91
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-19.012-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101900F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 79,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 4,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 5,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 81
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-19.689-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500101900F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 77,
+       "Occupancy": 10,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 76
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 77,
+       "Occupancy": 8,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 5,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 72
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-20.412-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102000F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 78,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 13,
+         "Speed": 77
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 14,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 90
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-21.055-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102100F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 10,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 85,
+       "Occupancy": 12,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 15,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-21.808-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102100F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 72,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 19,
+         "Speed": 71
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 79,
+       "Occupancy": 13,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 14,
+         "Speed": 77
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 92
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-22.510-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102200F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 14,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 17,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 5,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-23.209-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102300F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 71,
+       "Occupancy": 15,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 16,
+         "Speed": 70
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 85,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-23.911-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102300F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 9,
+         "Speed": 85
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 9,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 73
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-24.677-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102400F",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 87,
+       "Occupancy": 5,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 86
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 83,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 10,
+         "Speed": 82
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-25.310-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102520G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 82,
+       "Occupancy": 12,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 15,
+         "Speed": 81
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 86,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 6,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 91
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-26.007-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102600G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 80,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 89,
+       "Occupancy": 7,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 88
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 92
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-26.705-M-PS-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102600G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 81,
+       "Occupancy": 16,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 21,
+         "Speed": 80
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 84,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 83
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 87
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-27.468-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102700G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 85,
+       "Occupancy": 11,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 14,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 95,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 7,
+         "Speed": 95
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 3,
+         "Speed": 93
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-27.779-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102700G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 85,
+       "Occupancy": 7,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 94,
+       "Occupancy": 7,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 5,
+         "Speed": 95
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 3,
+         "Speed": 92
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-28.420-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102820G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 85,
+       "Occupancy": 8,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 11,
+         "Speed": 84
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 82,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 5,
+         "Speed": 79
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 2,
+         "Speed": 89
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-29.000-M-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000500102900G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 94,
+       "Occupancy": 10,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 15,
+         "Speed": 93
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      },
+      {
+       "LaneID": 1,
+       "LaneType": 1,
+       "Speed": 99,
+       "Occupancy": 9,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 12,
+         "Speed": 98
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 0,
+         "Speed": 0
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  },
+  {
+   "VDID": "VD-N5-N-29.600-B-LOOP",
+   "SubAuthorityCode": "NFB-PL",
+   "LinkFlows": [
+    {
+     "LinkID": "0000501104098G",
+     "Lanes": [
+      {
+       "LaneID": 0,
+       "LaneType": 1,
+       "Speed": 67,
+       "Occupancy": 6,
+       "Vehicles": [
+        {
+         "VehicleType": "S",
+         "Volume": 6,
+         "Speed": 64
+        },
+        {
+         "VehicleType": "L",
+         "Volume": 1,
+         "Speed": 78
+        },
+        {
+         "VehicleType": "T",
+         "Volume": 0,
+         "Speed": 0
+        }
+       ],
+       "ErrorType": "diag0"
+      }
+     ]
+    }
+   ],
+   "Status": 0,
+   "DataCollectTime": "2026-11-03T10:33:00+08:00"
+  }
+ ]
+}
